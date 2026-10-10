@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Personal portfolio of Amal a KFUPM student interested in software development."
+    >
+
+    <title>Amal | Portfolio</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+    <!-- Header and Navigation -->
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a class="logo" href="#home">Amal Almahmud</a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Section -->
+        <section id="home" class="hero">
+            <p class="greeting">Welcome to my portfolio</p>
+
+            <h1>Hi, I'm Amal</h1>
+
+            <p class="hero-description">
+                I am a KFUPM student with a growing interest in software
+                development. I am currently building my skills in Java,
+                Python, and web development, and I enjoy creating practical,
+                user-focused applications.
+            </p>
+
+            <a class="primary-button" href="#projects">
+                View My Projects
+            </a>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+
+            <p class="about-text">
+                I am a motivated student eager to grow as a
+                software engineer.Through coursework and personal practice,
+                I am strengthening my abilities in programming and
+                problem-solving.I look forward to applying my skills to
+                real-world projects that make a difference.
+            </p>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <h2>Skills I'm Developing</h2>
+
+            <ul class="skill-list">
+                <li class="skill-item">HTML</li>
+                <li class="skill-item">CSS</li>
+                <li class="skill-item">JavaScript</li>
+                <li class="skill-item">Java</li>
+                <li class="skill-item">Python</li>
+                <li class="skill-item">UI/UX Design</li>
+            </ul>
+        </section>
+
+        <!-- Projects Section -->
+         <!--I DID NOT ADD THE REAL IMAGES FROM MY PROJECTS BUT IN THE FUTURE PHASES I WILL -->
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+
+            <div class="project-cards">
+                <article class="project-card">
+                    <img
+                         src="assets/images/project-one.png"
+                        alt="Placeholder preview for the Personal Portfolio Website project"
+                        class="project-image"
+                    >
+
+                    <h3>Personal Portfolio Website</h3>
+
+                    <p class="project-description">
+                        A personal portfolio website currently being developed
+                        to showcase my skills and projects. It includes sections
+                        for About Me, Skills, Projects, and Contact.
+                    </p>
+                </article>
+
+                <article class="project-card">
+                    <img
+                        src="assets/images/project-two.png"
+                        alt="Placeholder preview for the Study Planner project"
+                        class="project-image"
+                    >
+
+                    <h3>Study Planner</h3>
+
+                    <p class="project-description">
+                        A planned web application designed to help students
+                        organize study sessions, assignments, and upcoming
+                        deadlines.
+                    </p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact</h2>
+
+          <form id="contact-form" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="name">Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="5"
+                        required
+                    ></textarea>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Send Message
+                </button>
+
+                <p id="form-status" role="status"></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Amal</p>
+    </footer>
+</body>
+
+</html>
