@@ -38,35 +38,67 @@
 
     <main>
         <!-- Home Section -->
-        <section id="home" class="hero">
-            <p class="greeting">Welcome to my portfolio</p>
+        
+<section id="home" class="hero">
+    <div class="hero-layout">
 
-            <h1>Hi, I'm Amal</h1>
+        <div class="hero-content">
+
+            <h1 class="hero-title">
+                Hi, I'm
+                <span class="hero-name">Amal </span>
+            </h1>
 
             <p class="hero-description">
-                I am a KFUPM student with a growing interest in software
-                development. I am currently building my skills in Java,
-                Python, and web development, and I enjoy creating practical,
-                user-focused applications.
+                I am a KFUPM student developing my skills in software
+                development and creating practical, user-focused
+                web experiences.
             </p>
 
-            <a class="primary-button" href="#projects">
-                View My Projects
-            </a>
-        </section>
+            <div class="hero-actions">
+                <a class="primary-button" href="#projects">
+                    View My Projects
+                    <span aria-hidden="true">→</span>
+                </a>
 
-        <!-- About Me Section -->
-        <section id="about" class="about">
-            <h2>About Me</h2>
+                <a class="secondary-button" href="#contact">
+                    Contact Me
+                </a>
+            </div>
+        </div>
 
-            <p class="about-text">
-                I am a motivated student eager to grow as a
-                software engineer.Through coursework and personal practice,
-                I am strengthening my abilities in programming and
-                problem-solving.I look forward to applying my skills to
-                real-world projects that make a difference.
+        <div class="hero-visual">
+            
+            <p class="typing-prefix">I am a</p>
+
+            <p class="typing-role" aria-hidden="true">
+                <span id="typing-text">Software Engineer</span>
+                <span class="typing-cursor">|</span>
             </p>
-        </section>
+
+            <p class="screen-reader-text">
+                Software developer, web developer, and problem solver
+            </p>
+
+            <div class="visual-badge">
+                JAVA ✦ PYTHON ✦ WEB
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section id="about" class="about">
+    <h2>About Me</h2>
+
+    <p class="about-text">
+        I am a KFUPM student interested in software development
+        and creating useful digital experiences. Through coursework
+        and personal practice, I am developing my programming,
+        problem-solving, and web development skills.
+    </p>
+</section>
 
         <!-- Skills Section -->
         <section id="skills" class="skills">
