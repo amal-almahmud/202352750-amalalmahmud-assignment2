@@ -45,3 +45,26 @@ if (name.length < 2 || !namePattern.test(name)) {
     showStatus(`Thank you, ${name}!`, "success");
     contactForm.reset();
 });
+
+const typingText = document.querySelector("#typing-text");
+const roleText = "Software Engineer";
+
+let letterIndex = 0;
+
+function typingEffect() {
+    letterIndex++;
+    typingText.textContent = roleText.slice(0, letterIndex);
+
+    if (letterIndex < roleText.length) {
+        setTimeout(typingEffect, 100);
+    } else {
+        setTimeout(function () {
+            typingText.textContent = "";
+            letterIndex = 0;
+
+            setTimeout(typingEffect, 500);
+        }, 1500);
+    }
+}
+
+typingEffect();

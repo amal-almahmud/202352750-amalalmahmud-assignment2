@@ -199,7 +199,7 @@ textarea {
     margin-bottom: var(--space-xl);
     font-size: clamp(1rem, 2vw, 1.2rem);
     line-height: 1.8;
-    color: var(--color-text-muted);
+     color: var(--color-text);
 }
 
 .hero-actions {
@@ -355,7 +355,15 @@ textarea {
 }
 
 .about {
+    width: calc(100% - 2rem);
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
     background-color: var(--color-surface);
+    border: 1px solid var(--color-primary-light);
+    border-left: 6px solid var(--color-primary);
+    border-radius: 16px;
+    
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
 .skills {
@@ -383,12 +391,12 @@ textarea {
 
 
 .about-text {
-    font-size: 1rem;
-    color: var(--color-text-muted);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+     color: var(--color-text);
     max-width: 700px;
     margin: 0 auto;
     text-align: center;
-    line-height: 1.7;
+    line-height: 1.9;
 }
 
 .skill-list {
@@ -680,3 +688,4 @@ textarea {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
+
