@@ -767,9 +767,24 @@ textarea {
     background-color: #fdeaea;
 }
 
-/* =========================
-   13. Footer
-========================= */
+.field-error {
+    margin: 0;
+    color: var(--color-error, #9c2424);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.field-error:not(:empty) {
+    margin-top: 0.4rem;
+}
+
+/* Red border around an invalid field */
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: var(--color-error, #9c2424);
+}
+
+
 
 .site-footer {
     padding: var(--space-xl) var(--space-md);
@@ -783,9 +798,7 @@ textarea {
     opacity: 0.8;
 }
 
-/* =========================
-   14. Tablet
-========================= */
+
 
 @media (max-width: 768px) {
     .site-header {
@@ -834,9 +847,6 @@ textarea {
     }
 }
 
-/* =========================
-   15. Mobile
-========================= */
 
 @media (max-width: 480px) {
     :root {
@@ -904,8 +914,6 @@ textarea {
         font-size: 0.8125rem;
     }
 }
-
-
 
 @media (prefers-reduced-motion: reduce) {
     .skills-core,
