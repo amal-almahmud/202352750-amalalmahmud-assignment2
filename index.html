@@ -16,7 +16,7 @@
 
     <title>Amal | Portfolio</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=3">
     <script src="js/script.js" defer></script>
 </head>
 
@@ -101,18 +101,40 @@
 </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2>Skills I'm Developing</h2>
-
-            <ul class="skill-list">
-                <li class="skill-item">HTML</li>
-                <li class="skill-item">CSS</li>
-                <li class="skill-item">JavaScript</li>
-                <li class="skill-item">Java</li>
-                <li class="skill-item">Python</li>
-                <li class="skill-item">UI/UX Design</li>
+    <section id="skills" class="skills">
+        <h2>Skills I'm Developing</h2>
+    
+        <div id="skills-orbit" class="skills-orbit">
+            <button id="skills-button" class="skills-core" type="button" aria-expanded="false" aria-controls="skills-items">
+                Skills
+            </button>
+    
+            <ul id="skills-items" class="orbit-list" aria-hidden="true">
+                <li class="orbit-skill" style="--x: 0; --y: -1; --i: 0;">
+                    HTML
+                </li>
+                <li class="orbit-skill" style="--x: 0.866; --y: -0.5; --i: 1;">
+                    CSS
+                </li>
+                <li class="orbit-skill" style="--x: 0.866; --y: 0.5; --i: 2;">
+                    JavaScript
+                </li>
+                <li class="orbit-skill" style="--x: 0; --y: 1; --i: 3;">
+                    Java
+                </li>
+                <li class="orbit-skill" style="--x: -0.866; --y: 0.5; --i: 4;">
+                    Python
+                </li>
+                <li class="orbit-skill" style="--x: -0.866; --y: -0.5; --i: 5;">
+                    UI/UX Design
+                </li>
             </ul>
-        </section>
+        </div>
+    
+        <p class="skills-hint">
+            Hover over or select Skills to explore.
+        </p>
+    </section>
 
         <!-- Projects Section -->
          <!--I DID NOT ADD THE REAL IMAGES FROM MY PROJECTS BUT IN THE FUTURE PHASES I WILL -->

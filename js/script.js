@@ -25,16 +25,15 @@ contactForm.addEventListener("submit", function (event) {
 
     const namePattern = /^[\p{L}\s'-]+$/u;
 
-if (name.length < 2 || !namePattern.test(name)) {
-    showStatus(
-        "Please enter a valid name using letters only.",
-        "error"
-    );
+    if (name.length < 2 || !namePattern.test(name)) {
+        showStatus(
+            "Please enter a valid name using letters only.",
+            "error"
+        );
 
-    nameInput.focus();
-    return;
-}
-
+        nameInput.focus();
+        return;
+    }
 
     if (emailInput.validity.typeMismatch) {
         showStatus("Please enter a valid email address.", "error");
@@ -42,10 +41,11 @@ if (name.length < 2 || !namePattern.test(name)) {
         return;
     }
 
-    showStatus(`Thank you, ${name}!`, "success");
+    showStatus("Thank you, " + name + "!", "success");
     contactForm.reset();
 });
 
+// Typing Effect
 const typingText = document.querySelector("#typing-text");
 const roleText = "Software Engineer";
 
@@ -68,3 +68,53 @@ function typingEffect() {
 }
 
 typingEffect();
+
+// Interactive Skills Circle
+const skillsOrbit = document.querySelector("#skills-orbit");
+const skillsButton = document.querySelector("#skills-button");
+const skillsItems = document.querySelector("#skills-items");
+
+if (skillsOrbit && skillsButton && skillsItems) {
+    function showSkills(open) {
+        skillsOrbit.classList.toggle("is-open", open);
+        skillsButton.setAttribute("aria-expanded", String(open));
+        skillsItems.setAttribute("aria-hidden", String(!open));
+    }
+
+    skillsButton.addEventListener("pointerenter", function (event) {
+        if (event.pointerType === "mouse") {
+            showSkills(true);
+        }
+    });
+
+    skillsOrbit.addEventListener("pointerleave", function (event) {
+        if (event.pointerType === "mouse") {
+            showSkills(false);
+        }
+    });
+
+    skillsButton.addEventListener("click", function () {
+        const isOpen =
+            skillsButton.getAttribute("aria-expanded") === "true";
+
+        showSkills(!isOpen);
+    });
+
+    skillsOrbit.addEventListener("focusout", function (event) {
+        if (!skillsOrbit.contains(event.relatedTarget)) {
+            showSkills(false);
+        }
+    });
+
+    skillsOrbit.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            showSkills(false);
+        }
+    });
+
+    document.addEventListener("pointerdown", function (event) {
+        if (!skillsOrbit.contains(event.target)) {
+            showSkills(false);
+        }
+    });
+}
