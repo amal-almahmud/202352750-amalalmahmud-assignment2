@@ -1,3 +1,6 @@
+/* =========================
+   1. Reset
+========================= */
 
 *,
 *::before,
@@ -7,12 +10,62 @@
     padding: 0;
 }
 
+/* =========================
+   2. Variables
+========================= */
+
+:root {
+    --color-bg: #fbf8f3;
+    --color-surface: #fffdf9;
+    --color-text: #191616;
+    --color-text-muted: #756d68;
+
+    --color-primary: #bf4444;
+    --color-primary-hover: #bf4444;
+    --color-primary-light: #ebc5c8;
+
+    --color-border: #ded7d1;
+    --color-border-focus: #bf4444;
+
+    --color-success: #25642f;
+    --color-error: #9c2424;
+
+    --color-footer-bg: #fbf8f3;
+    --color-footer-text: #191616;
+
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+
+    --max-width: 1100px;
+    --header-height: 70px;
+
+    --border-radius: 8px;
+    --border-radius-sm: 4px;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+    --transition-fast: 150ms ease;
+    --transition-normal: 250ms ease;
+}
+
+/* =========================
+   3. General Styles
+========================= */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     font-size: 1rem;
     line-height: 1.6;
     color: var(--color-text);
@@ -21,9 +74,9 @@ body {
 }
 
 img {
+    display: block;
     max-width: 100%;
     height: auto;
-    display: block;
 }
 
 a {
@@ -49,52 +102,15 @@ textarea {
     font-size: inherit;
 }
 
-/* 
-   CSS Custom Properties (Variables)
-    */
-:root {
-    
-    --color-bg: #f5f5f5;
-    --color-surface: #ffffff;
-    --color-text: #1a1a2e;
-    --color-text-muted: #4a4a6a;
-    --color-primary: #3f51b5;
-    --color-primary-hover: #303f9f;
-    --color-primary-light: #e8eaf6;
-    --color-border: #e0e0e0;
-    --color-border-focus: #3f51b5;
-    --color-footer-bg: #1a1a2e;
-    --color-footer-text: #ffffff;
-    --color-error: #d32f2f;
-    --color-success: #388e3c;
-
-
-    --space-xs: 0.25rem;
-    --space-sm: 0.5rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-
-    
-    --max-width: 1100px;
-    --header-height: 70px;
-    --border-radius: 8px;
-    --border-radius-sm: 4px;
-
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
-
-    
-    --transition-fast: 150ms ease;
-    --transition-normal: 250ms ease;
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
 }
 
-/*
-   Header & Navigation
-    */
+/* =========================
+   4. Header and Navigation
+========================= */
+
 .site-header {
     position: sticky;
     top: 0;
@@ -109,28 +125,28 @@ textarea {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-md);
     height: 100%;
     max-width: var(--max-width);
     margin: 0 auto;
     padding: 0 var(--space-md);
-    gap: var(--space-md);
-    flex-wrap: wrap;
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: var(--color-text);
     white-space: nowrap;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: var(--space-xs);
-    flex-wrap: wrap;
     justify-content: center;
+    flex-wrap: wrap;
     flex: 1;
+    gap: var(--space-xs);
 }
 
 .nav-links a {
@@ -139,14 +155,16 @@ textarea {
     font-weight: 500;
     color: var(--color-text);
     border-radius: var(--border-radius-sm);
-    transition: color var(--transition-fast), background-color var(--transition-fast);
+
+    transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast);
 }
 
 .nav-links a:hover,
 .nav-links a:focus-visible {
     color: var(--color-primary);
     background-color: var(--color-primary-light);
-    outline: none;
 }
 
 .nav-links a:focus-visible {
@@ -154,78 +172,225 @@ textarea {
     outline-offset: 2px;
 }
 
-/* 
-   Hero Section
- */
+/* =========================
+   5. Hero
+========================= */
+
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-     justify-content: center;
-    padding: var(--space-3xl) var(--space-md);
     min-height: calc(100vh - var(--header-height));
-    background: linear-gradient(135deg, var(--color-bg) 0%, #eef0f8 100%);
+    padding: clamp(3rem, 7vw, 6rem) var(--space-md);
+
+    display: flex;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at 88% 25%,
+            var(--color-primary-light) 0%,
+            transparent 30%
+        ),
+        var(--color-bg);
 }
 
-.greeting {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--color-primary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-sm);
+.hero-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+    align-items: center;
+    gap: clamp(2rem, 6vw, 5rem);
+
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
 }
 
-.hero h1 {
-    font-size: clamp(2rem, 5vw, 3rem);
+.hero-content {
+    min-width: 0;
+}
+
+.hero-title {
+    margin-bottom: var(--space-lg);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(4.5rem, 8vw, 8rem);
     font-weight: 700;
+    line-height: 0.9;
+    letter-spacing: -0.06em;
     color: var(--color-text);
-    line-height: 1.2;
-    margin-bottom: var(--space-md);
+}
+
+.hero-name {
+    display: block;
+    color: var(--color-primary);
 }
 
 .hero-description {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    color: var(--color-text-muted);
-    max-width: 600px;
+    max-width: 620px;
     margin-bottom: var(--space-xl);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    line-height: 1.8;
+    color: var(--color-text);
 }
 
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+}
+
+/* =========================
+   6. Buttons
+========================= */
+
 .primary-button,
+.secondary-button,
 .submit-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: var(--space-md) var(--space-xl);
-    font-size: 1rem;
-    font-weight: 600;
-    color: #ffffff;
-    background-color: var(--color-primary);
-    border-radius: var(--border-radius);
-    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    gap: var(--space-sm);
+
     min-height: 48px;
     min-width: 160px;
+    padding: var(--space-md) var(--space-xl);
+
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+
+    font-size: 1rem;
+    font-weight: 700;
+
+    transition:
+        color var(--transition-fast),
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.primary-button,
+.submit-button {
+    color: #ffffff;
+    background-color: var(--color-primary);
+}
+
+.secondary-button {
+    color: var(--color-text);
+    background-color: transparent;
+    border-color: var(--color-border);
 }
 
 .primary-button:hover,
 .submit-button:hover {
     background-color: var(--color-primary-hover);
-    transform: translateY(-1px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
 }
 
+.secondary-button:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
 .primary-button:focus-visible,
+.secondary-button:focus-visible,
 .submit-button:focus-visible {
-    outline: 2px solid var(--color-primary);
+    outline: 3px solid var(--color-primary-light);
     outline-offset: 3px;
 }
 
 .primary-button:active,
+.secondary-button:active,
 .submit-button:active {
     transform: translateY(0);
-    box-shadow: var(--shadow-sm);
 }
+
+/* =========================
+   7. Typing Card
+========================= */
+
+.hero-visual {
+    position: relative;
+    min-height: 420px;
+    padding: clamp(2rem, 5vw, 3.5rem);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background-color: var(--color-surface);
+    border: 3px solid var(--color-primary);
+    box-shadow: 18px 18px 0 var(--color-primary-light);
+}
+
+.visual-label {
+    position: absolute;
+    top: var(--space-lg);
+    left: var(--space-lg);
+
+    font-family: monospace;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--color-text-muted);
+}
+
+.typing-prefix {
+    margin-bottom: var(--space-sm);
+    font-size: 1.5rem;
+    color: var(--color-text-muted);
+}
+
+.typing-role {
+    min-height: 2.5em;
+    font-family: monospace;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-primary);
+    overflow-wrap: anywhere;
+}
+
+.typing-cursor {
+    display: inline-block;
+    margin-left: 0.1em;
+    animation: cursor-blink 0.8s step-end infinite;
+}
+
+.visual-badge {
+    position: absolute;
+    right: -1rem;
+    bottom: 1.5rem;
+
+    padding: var(--space-sm) var(--space-md);
+    background-color: var(--color-primary);
+    color: #ffffff;
+
+    font-family: monospace;
+    font-weight: 700;
+    transform: rotate(-3deg);
+}
+
+.screen-reader-text {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+}
+
+@keyframes cursor-blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+/* =========================
+   8. Shared Section Styles
+========================= */
 
 .about,
 .skills,
@@ -237,41 +402,50 @@ textarea {
     padding: var(--space-3xl) var(--space-md);
 }
 
-.about {
-    background-color: var(--color-surface);
-}
-
-.skills {
-    background-color: var(--color-bg);
-}
-
-.projects {
-    background-color: var(--color-surface);
-}
-
-.contact {
-    background-color: var(--color-bg);
-}
-
 .about h2,
 .skills h2,
 .projects h2,
 .contact h2 {
+    margin-bottom: var(--space-xl);
     font-size: clamp(1.75rem, 4vw, 2.25rem);
     font-weight: 700;
     color: var(--color-text);
     text-align: center;
-    margin-bottom: var(--space-xl);
 }
 
+/* =========================
+   9. About Me
+========================= */
+
+.about {
+    width: calc(100% - 2rem);
+    margin: 2rem auto;
+    padding: clamp(1.5rem, 4vw, 3rem);
+
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-primary-light);
+    border-left: 6px solid var(--color-primary);
+    border-radius: 16px;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
 
 .about-text {
-    font-size: 1rem;
-    color: var(--color-text-muted);
     max-width: 700px;
     margin: 0 auto;
+
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    line-height: 1.9;
+    color: var(--color-text);
     text-align: center;
-    line-height: 1.7;
+}
+
+/* =========================
+   10. Skills
+========================= */
+
+.skills {
+    background-color: var(--color-bg);
 }
 
 .skill-list {
@@ -284,21 +458,168 @@ textarea {
 .skill-item {
     display: inline-flex;
     align-items: center;
+
     padding: var(--space-sm) var(--space-md);
+
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text);
+
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast),
+        transform var(--transition-fast);
 }
 
 .skill-item:hover {
     border-color: var(--color-primary);
     box-shadow: var(--shadow-md);
     transform: translateY(-2px);
+}
+
+/* Skills Circle Container */
+
+.skills-orbit {
+    --radius: clamp(108px, 34vw, 154px);
+    --label-width: clamp(96px, 25vw, 112px);
+    --core-size: clamp(100px, 30vw, 140px);
+
+    position: relative;
+    width: min(100%, 420px);
+    aspect-ratio: 1;
+
+    margin: 0 auto;
+    isolation: isolate;
+}
+
+/* Center Circle */
+
+.skills-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+
+    display: grid;
+    place-items: center;
+
+    width: var(--core-size);
+    height: var(--core-size);
+    padding: 0;
+
+    background-color: var(--color-primary);
+    color: #ffffff;
+
+    border: 3px solid var(--color-primary);
+    border-radius: 50%;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+
+    box-shadow: 10px 10px 0 var(--color-primary-light);
+    transform: translate(-50%, -50%);
+
+    transition:
+        transform 300ms ease,
+        box-shadow 300ms ease;
+}
+
+.skills-core:focus-visible {
+    outline: 3px solid var(--color-text);
+    outline-offset: 6px;
+}
+
+/* Skill Labels */
+
+.orbit-list {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.orbit-skill {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    display: grid;
+    place-items: center;
+
+    width: var(--label-width);
+    height: 44px;
+    padding: 0.3rem;
+
+    background-color: var(--color-surface);
+    color: var(--color-text);
+
+    border: 1px solid var(--color-primary);
+    border-radius: 999px;
+    box-shadow: var(--shadow-sm);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translate(-50%, -50%) scale(0.4);
+
+    transition:
+        transform 450ms ease,
+        opacity 300ms ease,
+        visibility 0s 450ms;
+}
+
+/* Expanded Skills */
+
+.skills-orbit.is-open .orbit-skill {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    transform:
+        translate(-50%, -50%)
+        translate(
+            calc(var(--x) * var(--radius)),
+            calc(var(--y) * var(--radius))
+        )
+        scale(1);
+
+    transition-delay:
+        calc(var(--i) * 40ms),
+        calc(var(--i) * 40ms),
+        0s;
+}
+
+.skills-orbit.is-open .skills-core {
+    transform: translate(-50%, -50%) scale(1.04);
+    box-shadow: 6px 6px 0 var(--color-primary-light);
+}
+
+.skills-hint {
+    margin-top: 1rem;
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================
+   11. Projects
+========================= */
+
+.projects {
+    background-color: var(--color-surface);
 }
 
 .project-cards {
@@ -310,12 +631,17 @@ textarea {
 .project-card {
     display: flex;
     flex-direction: column;
+
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
+
     box-shadow: var(--shadow-sm);
     overflow: hidden;
-    transition: box-shadow var(--transition-normal), transform var(--transition-normal);
+
+    transition:
+        box-shadow var(--transition-normal),
+        transform var(--transition-normal);
 }
 
 .project-card:hover {
@@ -331,27 +657,38 @@ textarea {
 }
 
 .project-card h3 {
+    padding: var(--space-md) var(--space-md) var(--space-xs);
     font-size: 1.125rem;
     font-weight: 600;
     color: var(--color-text);
-    padding: var(--space-md) var(--space-md) var(--space-xs);
 }
 
 .project-description {
-    font-size: 0.9375rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-    padding: 0 var(--space-md) var(--space-md);
     flex: 1;
+    padding: 0 var(--space-md) var(--space-md);
+
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--color-text-muted);
+}
+
+/* =========================
+   12. Contact
+========================= */
+
+.contact {
+    background-color: var(--color-bg);
 }
 
 .contact-form {
     max-width: 600px;
     margin: 0 auto;
     padding: var(--space-xl) var(--space-md);
+
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
+
     box-shadow: var(--shadow-sm);
 }
 
@@ -361,21 +698,27 @@ textarea {
 
 .form-group label {
     display: block;
+    margin-bottom: var(--space-xs);
+
     font-size: 0.875rem;
     font-weight: 500;
     color: var(--color-text);
-    margin-bottom: var(--space-xs);
 }
 
 .form-group input,
 .form-group textarea {
     width: 100%;
     padding: var(--space-md);
+
     color: var(--color-text);
     background-color: var(--color-surface);
+
     border: 1px solid var(--color-border);
     border-radius: var(--border-radius);
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+
+    transition:
+        border-color var(--transition-fast),
+        box-shadow var(--transition-fast);
 }
 
 .form-group input::placeholder,
@@ -403,6 +746,7 @@ textarea {
 #form-status {
     min-height: 1.5rem;
     margin-top: var(--space-md);
+
     font-size: 0.875rem;
     text-align: center;
     color: var(--color-text-muted);
@@ -423,6 +767,25 @@ textarea {
     background-color: #fdeaea;
 }
 
+.field-error {
+    margin: 0;
+    color: var(--color-error, #9c2424);
+    font-size: 0.875rem;
+    line-height: 1.5;
+}
+
+.field-error:not(:empty) {
+    margin-top: 0.4rem;
+}
+
+/* Red border around an invalid field */
+.form-group input[aria-invalid="true"],
+.form-group textarea[aria-invalid="true"] {
+    border-color: var(--color-error, #9c2424);
+}
+
+
+
 .site-footer {
     padding: var(--space-xl) var(--space-md);
     background-color: var(--color-footer-bg);
@@ -435,11 +798,9 @@ textarea {
     opacity: 0.8;
 }
 
-@media (max-width: 768px) {
-    :root {
-        --header-height: auto;
-    }
 
+
+@media (max-width: 768px) {
     .site-header {
         height: auto;
         padding: var(--space-md) 0;
@@ -486,6 +847,7 @@ textarea {
     }
 }
 
+
 @media (max-width: 480px) {
     :root {
         --space-2xl: 2rem;
@@ -501,7 +863,7 @@ textarea {
     }
 
     .nav-links a {
-        padding: var(--space-sm) var(--space-sm);
+        padding: var(--space-sm);
         font-size: 0.875rem;
     }
 
@@ -529,7 +891,6 @@ textarea {
     }
 
     .about,
-    .skills,
     .projects,
     .contact {
         padding: var(--space-xl) var(--space-sm);
@@ -538,11 +899,6 @@ textarea {
     .about-text,
     .project-description {
         font-size: 0.9375rem;
-    }
-
-    .skill-item {
-        font-size: 0.8125rem;
-        padding: var(--space-xs) var(--space-sm);
     }
 
     .project-card h3 {
@@ -559,7 +915,96 @@ textarea {
     }
 }
 
-:focus-visible {
-    outline: 2px solid var(--color-primary);
-    outline-offset: 2px;
+@media (prefers-reduced-motion: reduce) {
+    .skills-core,
+    .orbit-skill {
+        transition: none;
+    }
+}
+
+/* Mobile layout adjustments */
+@media (max-width: 768px) {
+    .site-header {
+        height: auto;
+        padding: 0.75rem 0;
+    }
+
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .nav-links {
+        flex: 0 1 auto;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 0.65rem;
+        font-size: 0.875rem;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 2.5rem 1rem;
+    }
+
+    .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .hero-content {
+        min-width: 0;
+    }
+
+    .hero .hero-title {
+        font-size: clamp(3rem, 10vw, 4.5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-actions a {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-visual {
+        width: 100%;
+        min-width: 0;
+        min-height: 260px;
+        padding: 1.25rem;
+        box-shadow: 8px 8px 0 var(--color-primary-light);
+    }
+
+    .typing-prefix {
+        font-size: 1.125rem;
+    }
+
+    .typing-role {
+        font-size: clamp(1.25rem, 5vw, 2rem);
+        overflow-wrap: anywhere;
+    }
+
+    .visual-badge {
+        right: 0.5rem;
+        bottom: 1rem;
+        max-width: calc(100% - 1rem);
+        font-size: 0.8rem;
+    }
 }

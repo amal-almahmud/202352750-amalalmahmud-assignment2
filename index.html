@@ -16,7 +16,7 @@
 
     <title>Amal | Portfolio</title>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=3">
     <script src="js/script.js" defer></script>
 </head>
 
@@ -38,49 +38,103 @@
 
     <main>
         <!-- Home Section -->
-        <section id="home" class="hero">
-            <p class="greeting">Welcome to my portfolio</p>
+        
+<section id="home" class="hero">
+    <div class="hero-layout">
 
-            <h1>Hi, I'm Amal</h1>
+        <div class="hero-content">
+
+            <h1 class="hero-title">
+                Hi, I'm
+                <span class="hero-name">Amal </span>
+            </h1>
 
             <p class="hero-description">
-                I am a KFUPM student with a growing interest in software
-                development. I am currently building my skills in Java,
-                Python, and web development, and I enjoy creating practical,
-                user-focused applications.
+                I am a KFUPM student developing my skills in software
+                development and creating practical, user-focused
+                web experiences.
             </p>
 
-            <a class="primary-button" href="#projects">
-                View My Projects
-            </a>
-        </section>
+            <div class="hero-actions">
+                <a class="primary-button" href="#projects">
+                    View My Projects
+                    <span aria-hidden="true">→</span>
+                </a>
 
-        <!-- About Me Section -->
-        <section id="about" class="about">
-            <h2>About Me</h2>
+                <a class="secondary-button" href="#contact">
+                    Contact Me
+                </a>
+            </div>
+        </div>
 
-            <p class="about-text">
-                I am a motivated student eager to grow as a
-                software engineer.Through coursework and personal practice,
-                I am strengthening my abilities in programming and
-                problem-solving.I look forward to applying my skills to
-                real-world projects that make a difference.
+        <div class="hero-visual">
+            
+            <p class="typing-prefix">I am a</p>
+
+            <p class="typing-role" aria-hidden="true">
+                <span id="typing-text">Software Engineer</span>
+                <span class="typing-cursor">|</span>
             </p>
-        </section>
+
+            <p class="screen-reader-text">
+                Software developer, web developer, and problem solver
+            </p>
+
+            <div class="visual-badge">
+                JAVA ✦ PYTHON ✦ WEB
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- About Me Section -->
+<section id="about" class="about">
+    <h2>About Me</h2>
+
+    <p class="about-text">
+        I am a KFUPM student interested in software development
+        and creating useful digital experiences. Through coursework
+        and personal practice, I am developing my programming,
+        problem-solving, and web development skills.
+    </p>
+</section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills">
-            <h2>Skills I'm Developing</h2>
-
-            <ul class="skill-list">
-                <li class="skill-item">HTML</li>
-                <li class="skill-item">CSS</li>
-                <li class="skill-item">JavaScript</li>
-                <li class="skill-item">Java</li>
-                <li class="skill-item">Python</li>
-                <li class="skill-item">UI/UX Design</li>
+    <section id="skills" class="skills">
+        <h2>Skills I'm Developing</h2>
+    
+        <div id="skills-orbit" class="skills-orbit">
+            <button id="skills-button" class="skills-core" type="button" aria-expanded="false" aria-controls="skills-items">
+                Skills
+            </button>
+    
+            <ul id="skills-items" class="orbit-list" aria-hidden="true">
+                <li class="orbit-skill" style="--x: 0; --y: -1; --i: 0;">
+                    HTML
+                </li>
+                <li class="orbit-skill" style="--x: 0.866; --y: -0.5; --i: 1;">
+                    CSS
+                </li>
+                <li class="orbit-skill" style="--x: 0.866; --y: 0.5; --i: 2;">
+                    JavaScript
+                </li>
+                <li class="orbit-skill" style="--x: 0; --y: 1; --i: 3;">
+                    Java
+                </li>
+                <li class="orbit-skill" style="--x: -0.866; --y: 0.5; --i: 4;">
+                    Python
+                </li>
+                <li class="orbit-skill" style="--x: -0.866; --y: -0.5; --i: 5;">
+                    UI/UX Design
+                </li>
             </ul>
-        </section>
+        </div>
+    
+        <p class="skills-hint">
+            Hover over or select Skills to explore.
+        </p>
+    </section>
 
         <!-- Projects Section -->
          <!--I DID NOT ADD THE REAL IMAGES FROM MY PROJECTS BUT IN THE FUTURE PHASES I WILL -->
@@ -123,52 +177,41 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="contact">
-            <h2>Contact</h2>
-
-          <form id="contact-form" class="contact-form" novalidate>
-                <div class="form-group">
-                    <label for="name">Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        autocomplete="name"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        autocomplete="email"
-                        required
-                    >
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Message</label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="5"
-                        required
-                    ></textarea>
-                </div>
-
-                <button type="submit" class="submit-button">
-                    Send Message
-                </button>
-
-                <p id="form-status" role="status"></p>
-            </form>
-        </section>
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+    
+        <form id="contact-form" class="contact-form" novalidate>
+            <div class="form-group">
+                <label for="name">Name</label>
+    
+                <input type="text" id="name" name="name" autocomplete="name" aria-describedby="name-error" required>
+    
+                <p id="name-error" class="field-error"></p>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email</label>
+    
+                <input type="email" id="email" name="email" autocomplete="email" aria-describedby="email-error" required>
+    
+                <p id="email-error" class="field-error"></p>
+            </div>
+    
+            <div class="form-group">
+                <label for="message">Message</label>
+    
+                <textarea id="message" name="message" rows="5" aria-describedby="message-error" required></textarea>
+    
+                <p id="message-error" class="field-error"></p>
+            </div>
+    
+            <button type="submit" class="submit-button">
+                Send Message
+            </button>
+    
+            <p id="form-status" role="status" aria-atomic="true"></p>
+        </form>
+    </section>
     </main>
 
     <!-- Footer -->
