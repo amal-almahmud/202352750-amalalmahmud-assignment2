@@ -62,7 +62,6 @@ function getFieldError(input) {
 
     return "";
 }
-
 function setFieldError(field, message) {
     field.error.textContent = message;
 
@@ -72,18 +71,15 @@ function setFieldError(field, message) {
         field.input.removeAttribute("aria-invalid");
     }
 }
-
 contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    // Clear the previous general message.
     showStatus();
 
     const allEmpty = contactFields.every(function (field) {
         return field.input.value.trim() === "";
     });
 
-    // All fields are empty: show only the general message.
     if (allEmpty) {
         contactFields.forEach(function (field) {
             setFieldError(field, "");
@@ -94,7 +90,6 @@ contactForm.addEventListener("submit", function (event) {
         return;
     }
 
-    // Otherwise, display each field's error below it.
     let firstInvalid = null;
 
     contactFields.forEach(function (field) {
@@ -112,14 +107,12 @@ contactForm.addEventListener("submit", function (event) {
         return;
     }
 
-    // All fields are valid.
     const name = nameInput.value.trim();
 
     contactForm.reset();
     showStatus("Thank you, " + name + "!", "success");
 });
 
-// Update an existing field error as the user corrects it.
 contactFields.forEach(function (field) {
     field.input.addEventListener("input", function () {
         showStatus();
